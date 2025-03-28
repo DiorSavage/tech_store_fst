@@ -4,8 +4,16 @@ export interface IBasket {
     price: number;
 }
 
+export interface IAddress {
+    id: number;
+    city: string;
+    housenumber: number;
+    street: string;
+    name: "Main" | "Additional"
+}
+
 export interface IUser {
-    username: string,
+    username: string;
     id: string;
     email: string;
     password: string;
@@ -13,6 +21,7 @@ export interface IUser {
     firstname?: string;
     surname?: string;
     basket: IBasket[];
+    addresses: IAddress[]
 }
 
 export interface IUserCreate extends Omit<IUser, "id"> {

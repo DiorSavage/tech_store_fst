@@ -1471,6 +1471,7 @@
   ],
   "users": [
     {
+      "addresses": [],
       "id": "ui1",
       "username": "Alex_312",
       "email": "gay123@gmail.com",
@@ -1487,27 +1488,75 @@
       ]
     },
     {
+      "addresses": [
+        {
+          "id": 1,
+          "name": "Main",
+          "city": "Moscow",
+          "street": "Kolotushkina",
+          "housenumber": 23
+        },
+        {
+          "id": 1,
+          "name": "Additional",
+          "city": "Moscow",
+          "street": "Kolotushkina",
+          "housenumber": 23
+        },
+        {
+          "id": 1,
+          "name": "Main",
+          "city": "Moscow",
+          "street": "Kolotushkina",
+          "housenumber": 23
+        },
+        {
+          "id": 1,
+          "name": "Additional",
+          "city": "Moscow",
+          "street": "Kolotushkina",
+          "housenumber": 23
+        },
+        {
+          "id": 1,
+          "name": "Main",
+          "city": "Moscow",
+          "street": "Kolotushkina",
+          "housenumber": 23
+        },
+        {
+          "id": 1,
+          "name": "Additional",
+          "city": "Moscow",
+          "street": "Kolotushkina",
+          "housenumber": 23
+        },
+        {
+          "id": 1,
+          "name": "Main",
+          "city": "Moscow",
+          "street": "Kolotushkina",
+          "housenumber": 23
+        },
+        {
+          "id": 1,
+          "name": "Additional",
+          "city": "Moscow",
+          "street": "Kolotushkina",
+          "housenumber": 23
+        }
+      ],
       "username": "sexy_girl125",
       "email": "nigger145@gmail.com",
       "password": "qwerty123",
       "user_icon": "public/user_icon_KvFRLIx.png",
       "firstname": "Rose",
       "surname": "Smith",
-      "basket": [
-        {
-          "id": "pi909",
-          "count": 1,
-          "price": 6500
-        },
-        {
-          "id": "pi144",
-          "count": 1,
-          "price": 1999
-        }
-      ],
+      "basket": [],
       "id": "KvFRLIx"
     },
     {
+      "addresses": [],
       "username": "giper_gay$$$",
       "email": "xyesos345@gmail.com",
       "password": "qwertyuiop",
@@ -1518,6 +1567,7 @@
       "id": "tl8d3KY"
     },
     {
+      "addresses": [],
       "username": "voker2006",
       "email": "nigger421@gmail.com",
       "password": "qwertyuiop",
@@ -1528,6 +1578,7 @@
       "id": "5g3PC7P"
     },
     {
+      "addresses": [],
       "id": "db5e",
       "username": "chikatilo",
       "email": "gomunkulus@gmail.com",
@@ -1542,16 +1593,6 @@
           "price": 499
         }
       ]
-    },
-    {
-      "username": "voker2005",
-      "email": "nigger321@gmail.com",
-      "password": "qwertyuiop",
-      "user_icon": "None",
-      "firstname": "Alex",
-      "surname": "Negr",
-      "basket": [],
-      "id": "5g5PC7P"
     }
   ]
 }

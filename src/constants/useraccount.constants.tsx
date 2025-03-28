@@ -7,7 +7,7 @@ interface INavigation {
 
 export const navigation: INavigation[] = [
   {
-    path: 'main',
+    path: 'account',
     text: 'Account Dashboard',
   },
   {
@@ -15,37 +15,13 @@ export const navigation: INavigation[] = [
     text: 'Account Information'
   },
   {
-    path: 'book',
+    path: 'address',
     text: 'Address Book'
-  },
-  {
-    path: 'orders',
-    text: 'My Orders'
-  },
-  {
-    path: 'downloadable_products',
-    text: 'My Downloadable Products'
-  },
-  {
-    path: 'payment_methods',
-    text: 'Stored Payment Methods'
-  },
-  {
-    path: 'agrements',
-    text: 'Billing Agrements'
   },
   {
     path: 'wish_list',
     text: 'My Wish List'
   },
-  {
-    path: 'product_reviews',
-    text: 'My Product Reviews'
-  },
-  {
-    path: 'newsletter_subscriptions',
-    text: 'Newsletter Subscriptions'
-  }
 ]
 
 interface IBlocks {
@@ -70,11 +46,11 @@ export const blocks: IBlocks[] = [
   },
   {
     headerBlock: 'Address Book',
-    headersInfoBlock: ['Default Billing Address', 'Default Shipping Address'],
-    namesEdit: ['Edit Address', 'Edit Address'],
-    paths: ['information', 'newsletter_subscriptions'],
+    headersInfoBlock: ['Default Billing Address'],
+    namesEdit: ['Edit Address'],
+    paths: ['address'],
     headerLink: {
-      path: 'book',
+      path: 'address',
       name: 'Manage Addresses'
     },
     secondLinks: undefined

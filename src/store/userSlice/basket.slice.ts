@@ -12,6 +12,10 @@ export const basketSlice = createSlice({
         state = [...state, payload]
       } 
       return state
+    },
+    clearBasket: (state) => {
+      state = []
+      return state
     }
   }
 })

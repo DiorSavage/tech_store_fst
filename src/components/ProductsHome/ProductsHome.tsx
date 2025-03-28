@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from '../../styles/Home.module.scss';
 import { ICarouselProducts } from '../../types/productsCarousel.type';
 import { Carousel } from '../Carousel/Carousel';

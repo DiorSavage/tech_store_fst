@@ -10,6 +10,7 @@ export const UserAccount = () => {
   const { id } = useParams<string>()
   const userId = useTypedSelector(state => state.user.slice(1,-1))
   const navigate = useNavigate()
+  const location = document.location.pathname.split("/")
   useEffect(() => {
     if (userId === 'not') {
       navigate('/')
@@ -23,15 +24,7 @@ export const UserAccount = () => {
       <div className={styles.dashboard__blocks}>
         <div className={styles.dashboard__navigation}>
           <div className={styles.dashboard__links}>
-            {navigation.slice(0, 4).map((link, i) => {
-              return <NavLink key={i} className={ ({ isActive }) => isActive ? `${styles.nav__link} ${styles.nav__link_active}` : styles.nav__link} to={link.path}>{link.text}</NavLink>
-            })}
-            <div className='mx-auto w-[90%] h-[1px] bg-[#d4d3d3]'></div>
-            {navigation.slice(4, 8).map((link, i) => {
-              return <NavLink key={i} className={ ({ isActive }) => isActive ? `${styles.nav__link} ${styles.nav__link_active}` : styles.nav__link} to={link.path}>{link.text}</NavLink>
-            })}
-            <div className='mx-auto w-[90%] h-[1px] bg-[#d4d3d3]'></div>
-            {navigation.slice(8).map((link, i) => {
+            {navigation.map((link, i) => {
               return <NavLink key={i} className={ ({ isActive }) => isActive ? `${styles.nav__link} ${styles.nav__link_active}` : styles.nav__link} to={link.path}>{link.text}</NavLink>
             })}
           </div>

@@ -2,13 +2,14 @@ import styles from '../../styles/Basket.module.scss'
 import { IBasket } from '../../types/users.type';
 import { BasketItem } from './BasketItem';
 import { useGetUserQuery } from '../../store/api/userApi';
-import { useTypedSelector } from '../../hooks/redux';
+import { useTypedDispatch, useTypedSelector } from '../../hooks/redux';
 import { useNavigate } from 'react-router-dom';
 import { MenuItems } from './MenuItems';
 import { menuItems } from '../../constants/basket.constants';
 import { useEffect, useState } from 'react';
 import { Image } from 'antd';
 import { useUpdateUserDataMutation } from '../../store/api/userApi';
+import { basketSlice } from '../../store/userSlice/basket.slice'
 
 export const Basket = () => {
 
@@ -17,10 +18,12 @@ export const Basket = () => {
   const [updateBasket] = useUpdateUserDataMutation()
   const basket: IBasket[] = user ? user.basket : []
   const navigate = useNavigate()
+  const dispatch = useTypedDispatch()
   const [subtotal, setSubTotal] = useState<number>(0)
 
   const handleClearCart = () => {
     user && updateBasket({ ...user, basket: [] })
+    dispatch(basketSlice.actions.clearBasket())
   }
 
   useEffect(() => {
@@ -33,16 +36,25 @@ export const Basket = () => {
     navigate('/login')
   }
 
+  if (user?.basket.length === 0) {
+    return (
+      <div className={`h-[50vh] flex flex-col gap-y-12 items-center justify-center ${styles.basket__main}`}>
+        <p className='text-[50px]'>Your basket is empty</p>
+        <button onClick={() => navigate('/catalog/other')} className='transition-all duration-200 bg-white hover:bg-main_blue hover:border-[#ffffff] hover:text-[#ffffff] h-[55px] w-1/3 border-2 border-[#A2A6b0] text-[#A2A6B0] rounded-[50px] font-semibold text-sm'>Go shopping</button>
+      </div>
+    )
+  }
+
   return(
     <div className={styles.basket__main}>
       <div className='flex flex-col gap-y-8'>
         <h1>Shopping Cart</h1>
         <div className='flex w-full gap-x-9'>
           <div className={styles.basket__products}>
-            <span>Item</span>
-            <span>Price</span>
-            <span>Qty</span>
-            <span>Subtotal</span>
+              <span>Item</span>
+              <span>Price</span>
+              <span>Qty</span>
+              <span>Subtotal</span>
             {
               isLoading ? (<div>Loading</div>) : isSuccess ?
               basket.map((prod: IBasket, i: number) => {
@@ -56,7 +68,6 @@ export const Basket = () => {
                 <button onClick={() => navigate('/catalog/other')} className='transition-all duration-200 hover:border-[#73767c] hover:text-[#73767c] h-[45px] py-2 px-[21px] border-2 border-[#A2A6b0] text-[#A2A6B0] rounded-[50px] font-semibold text-sm'>Continue Shopping</button>
                 <button onClick={handleClearCart} className='transition-all duration-200 hover:bg-[#383838] py-3 px-6 bg-black text-white rounded-[50px] font-semibold text-sm'>Clear Shopping Cart</button>
               </div>
-              <button className='transition-all duration-200 hover:bg-[#383838] py-2 px-6 h-[45px] bg-black text-white rounded-[50px] font-semibold text-sm'>Update Shopping Cart </button>
             </div>
           </div>
           <div className={styles.basket__payment}>

@@ -7,13 +7,14 @@ import { NotFound } from "./components/NotFound/NotFound"
 import { Basket } from "./components/Basket/Basket"
 import { Contact } from "./pages/Contact/Contact"
 import { Auth } from "./pages/Auth/Auth"
-import { useTypedDispatch } from "./hooks/redux"
+import { useTypedDispatch, useTypedSelector } from "./hooks/redux"
 import { useEffect } from "react"
 import { actions } from "./store/userSlice/user.slice"
 import useLocalStorage from "use-local-storage"
 import { UserAccount } from "./pages/UserAccount/UserAccount"
 import { DashboardMain } from "./components/Dashboard/DashboardMain"
 import { DashboardInfo } from "./components/Dashboard/DashboardInfo"
+import { DashboardAddress } from './components/Dashboard/DashboardAddress'
 import { Checkout } from "./pages/Checkout/Checkout"
 import { Catalog } from "./pages/Catalog/Catalog"
 import { CatalogMain } from "./components/Catalog/CatalogMain"
@@ -43,8 +44,9 @@ export const App = () => {
           <Route path=":id/*" element={<ProductPage />} />
         </Route>
         <Route path="/user/:id/*" element={<UserAccount />}>
-          <Route path="main" element={<DashboardMain />} />
+          <Route path="account" element={<DashboardMain />} />
           <Route path="information" element={<DashboardInfo/>} />
+          <Route path="address" element={<DashboardAddress />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Route>

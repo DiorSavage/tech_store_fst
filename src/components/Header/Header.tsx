@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { userApi } from '../../store/api/userApi';
 import styles from '../../styles/Header.module.scss'
 import { Link } from 'react-router-dom'
@@ -55,7 +55,7 @@ export const Header = () => {
                     <div className={styles.user__links}>
                         <Link to="/" className={styles.search}></Link>
                         {user && user.basket && user.basket.length > 0 ? <Link to="/basket" className={styles.basket}><div className='relative left-[18px] flex items-center justify-center size-4 rounded-full bg-[#0156FF] text-white font-bold text-[10px]'>{user.basket.length}</div></Link> : <Link to="/basket" className={styles.basket}></Link>}
-                        <Link to={`${isauth === 'not' ? '/login' : `user/${isauth}/main`}`} className={styles.user}></Link>
+                        <Link to={`${isauth === 'not' ? '/login' : `user/${isauth}/account`}`} className={styles.user}></Link>
                     </div>
                 </section>
             </section>
